@@ -1,14 +1,12 @@
 import React from "react";
+import BookList from "./BookList";
 
 const Bookshelf = ({ title, books }) => (
   <div className="bookshelf">
-    <h2>{title}</h2>
-    <hr />
-    <ul>
-      {books.map(i => (
-        <li key={i.id}>{i.title}</li>
-      ))}
-    </ul>
+    <h1 className="bookshelf-title">{title}</h1>
+    <div className="bookshelf-books">
+      <BookList books={books} />
+    </div>
   </div>
 );
 
