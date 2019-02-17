@@ -1,11 +1,15 @@
 import React from "react";
-import BookList from "./BookList";
+import Book from "./Book";
 
-const Bookshelf = ({ title, books }) => (
+const Bookshelf = ({ title, books, moveBook }) => (
   <div className="bookshelf">
     <h1 className="bookshelf-title">{title}</h1>
     <div className="bookshelf-books">
-      <BookList books={books} />
+      <ul className="books-grid">
+        {books.map(book => (
+          <Book key={book.id} book={book} moveBook={moveBook} />
+        ))}
+      </ul>
     </div>
   </div>
 );
