@@ -8,7 +8,8 @@ import Book from "../components/Book";
 class Search extends React.Component {
   state = {
     search: "",
-    books: []
+    books: [],
+    homeBooks: []
   };
 
   constructor(props) {
@@ -23,20 +24,32 @@ class Search extends React.Component {
   };
 
   onSearch = async () => {
-    if (this.state.search.length > 0) {
-      let books = await BooksApi.search(this.state.search);
-      this.setState({ books });
+    const { search, homeBooks } = this.state;
+
+    if (search.length > 0) {
+      let searchedBooks = await BooksApi.search(search);
+      
+      // update shelf for searched books based on home books
+      if (!searchedBooks.error) {
+        searchedBooks.forEach(book => {
+          const idx = homeBooks.findIndex(b => b.id === book.id);
+          const sameBook = idx > -1;
+          book.shelf = sameBook ? homeBooks[idx].shelf : "none";
+        });
+      }
+
+      this.setState({ books: searchedBooks });
     }
   };
 
   updateBook = async (book, to) => {
     await BooksApi.update(book, to);
-    this.props.history.push('/')
+    this.props.history.push("/");
   };
 
   componentDidMount = async () => {
     let books = await BooksApi.getAll();
-    this.setState({ books });
+    this.setState({ books, homeBooks: books });
   };
 
   render() {
