@@ -1,5 +1,7 @@
 import React from "react";
 
+import noImage from "../img/no-avaiable.png";
+
 class Book extends React.Component {
   state = {
     value: ""
@@ -13,16 +15,15 @@ class Book extends React.Component {
   };
 
   render() {
-    const {
-      imageLinks: { thumbnail },
-      title,
-      authors
-    } = this.props.book;
+    const { book } = this.props;
+    const { title, authors } = book;
+    const hasImage = book.imageLinks && book.imageLinks.thumbnail;
+    const imgSrc = hasImage ? book.imageLinks.thumbnail : noImage;
 
     return (
       <li className="book">
         <div className="book-top">
-          <img src={thumbnail} alt={title} height={200} />
+          <img src={imgSrc} alt={title} height={200} />
           <div className="book-shelf-changer">
             <select value={this.state.value} onChange={this.handleChange}>
               <option value="none">None</option>
