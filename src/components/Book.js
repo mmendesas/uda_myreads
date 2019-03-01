@@ -25,7 +25,7 @@ class Book extends React.Component {
         <div className="book-top">
           <img src={imgSrc} alt={title} height={200} />
           <div className="book-shelf-changer">
-            <select value={this.state.value} onChange={this.handleChange}>
+            <select value={book.shelf} onChange={this.handleChange}>
               <option value="none">None</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to read</option>
