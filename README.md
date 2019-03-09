@@ -1,19 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Reads
+A simple app to classify books
 
-## Available Scripts
+## Getting started
+
+This project shows a simple list of books that you can classify into three categories: read, want to read and currently reading. It also has a search page, where you can search for a book using [this search terms](SEARCH_TERMS.md), and also change the categories.
+
+### Prerequisites
+You need to have the last version of `node` in yor machine
+
+### Avaiable Scripts
 
 In the project directory, you can run:
+  
+`npm install` 
+ * Install all the dependencies for this project
 
-### `npm install`
+`npm start`
+  *  Runs the app in the development mode.<br>
+    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Install all the dependencies for this project
+`npm test`
+  * Launches the test runner in the interactive watch mode.<br>
+  * See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm start`
+`npm build`
+  * Builds this entire project
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Built With
 
-### `npm test`
+* [Create React App](https://github.com/facebook/create-react-app) - Create React apps with no build configuration.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Authors
+
+* **Marcio Mendes** - *Initial work* - [mmendesas](https://github.com/mmendesas)
+
+## License
+
+This project is licensed under the MIT License

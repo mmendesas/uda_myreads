@@ -78,6 +78,7 @@ body,
 /* search page */
 
 .search-books-bar {
+    background-color: white;
     position: fixed;
     width: 100%;
     top: 0;
