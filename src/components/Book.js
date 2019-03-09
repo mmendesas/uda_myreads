@@ -40,7 +40,7 @@ class Book extends React.Component {
         </div>
         <label className="book-title">{title}</label>
         <div className="book-authors">{
-          authors.map((a, i) => <div key={i}>{a}</div>)
+          authors && authors.map((a, i) => <div key={i}>{a}</div>)
         }</div>
       </li>
     );
