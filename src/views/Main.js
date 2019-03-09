@@ -13,16 +13,28 @@ class Main extends Component {
 
   load = async () => {
     let books = await BooksApi.getAll();
+    this.updateState(books);
+  };
+
+  updateState = books => {
     this.setState(() => ({
       currentlyReading: books.filter(b => b.shelf === "currentlyReading"),
       wantToRead: books.filter(b => b.shelf === "wantToRead"),
       read: books.filter(b => b.shelf === "read")
     }));
-  };
+  }
 
   updateBook = async (book, to) => {
+    const { currentlyReading, wantToRead, read } = this.state;
+    let allBooks = [...currentlyReading, ...wantToRead, ...read];
+
+    // update book on api
     await BooksApi.update(book, to);
-    this.load();
+
+    // update state with changed book
+    let newBooks = allBooks.filter(b => b.id !== book.id);
+    newBooks.push({ ...book, shelf: to })
+    this.updateState(newBooks);
   };
 
   componentDidMount() {
