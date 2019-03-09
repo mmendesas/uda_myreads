@@ -28,7 +28,7 @@ class Search extends React.Component {
 
     if (search.length > 0) {
       let searchedBooks = await BooksApi.search(search);
-      
+
       // update shelf for searched books based on home books
       if (!searchedBooks.error) {
         searchedBooks.forEach(book => {
@@ -39,6 +39,8 @@ class Search extends React.Component {
       }
 
       this.setState({ books: searchedBooks });
+    } else {
+      this.setState({ books: [] })
     }
   };
 
@@ -75,8 +77,8 @@ class Search extends React.Component {
                 <Book key={book.id} book={book} moveBook={this.updateBook} />
               ))
             ) : (
-              <p>No results found!</p>
-            )}
+                <p>No results found!</p>
+              )}
           </ul>
         </div>
       </div>
