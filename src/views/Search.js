@@ -51,7 +51,7 @@ class Search extends React.Component {
 
   componentDidMount = async () => {
     let books = await BooksApi.getAll();
-    this.setState({ books, homeBooks: books });
+    this.setState({ books: [], homeBooks: books });
   };
 
   render() {
