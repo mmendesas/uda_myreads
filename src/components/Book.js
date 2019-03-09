@@ -1,11 +1,16 @@
 import React from "react";
-
+import PropTypes from 'prop-types';
 import noImage from "../img/no-avaiable.png";
 
 class Book extends React.Component {
   state = {
     value: ""
   };
+
+  static propTypes = {
+    book: PropTypes.object,
+    moveBook: PropTypes.func
+  }
 
   handleChange = event => {
     event.preventDefault();
