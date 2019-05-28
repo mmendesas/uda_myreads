@@ -1,5 +1,5 @@
 # My Reads
-A simple app to classify books
+:pencil2: A simple app to classify books
 
 ## Getting started
 
@@ -30,7 +30,7 @@ In the project directory, you can run:
 
 * [Create React App](https://github.com/facebook/create-react-app) - Create React apps with no build configuration.
 
-## Authors
+## Author
 
 * **Marcio Mendes** - *Initial work* - [mmendesas](https://github.com/mmendesas)
 
